@@ -1,0 +1,176 @@
+{% extends 'global/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container justify-content-center mt-3 ">
+        <div class="row">
+            <div class="col-md-15">
+                <div class="card">
+                    <div class="col-sm-12" style="background-color: rgb(78, 170, 167); border: 1px solid #333">
+                        <h4 class="card-title text-center mt-0" style="color:white;"> Creación de paquetes </h4>
+                    </div>
+                    <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
+                        <div class="form-group row ">
+                            <div class="row align-items-start">
+                                <div class="col-sm-4">
+                                    <label for="examen1" class="mr-2 fw-bold" style="color:white;">Seleccione examen:</label>
+                                    <select class="form-control border border-2 " id="examen1" name="examen1" >
+                                        <option value="codigo1">examen de sangre</option>
+                                        <option value="codigo2">examen de diabetes</option>
+                                        <option value="codigo3">examen de emmm algo random</option>
+                                        <option value="codigo4">la llama que llama a otra llama en llamas</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="valor1" class="mr-2 fw-bold" style="color:white;">valor examen</label>
+                                    <input type="text" class="form-control" id="valor1" name="valor1" placeholder="$0">
+                                </div>
+                                <div class="col-sm-4 mt-4">
+                                    <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modaldetalles">Detalles</button>
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-sm-8 mt-4">
+                                    <button class="btn btn-primary" type="submit">Agregar examen</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
+                        <div class="form-group row ">
+                            <div class="row align-items-start" style="background-color:white;margin-left:1px;">
+                                <div style="max-height: 300px; overflow-y: auto;">
+                                    <table class="table table-striped" style="margin-top:0.5%;">
+                                        <thead>
+                                            <tr>
+                                                <th>Rut</th>
+                                                <th>Nombre</th>
+                                                <th>Telefono</th>
+                                                <th>Preventiva</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>19218511-4</td>
+                                                <td>Mi Nombre</td>
+                                                <td>133</td>
+                                                <td>pablito saco un clavito</td>
+                                            </tr>
+                                            <tr>
+                                                <td>19218511-4</td>
+                                                <td>Mi Nombre</td>
+                                                <td>133</td>
+                                                <td>pablito saco un clavito</td>
+                                            </tr>
+                                            <tr>
+                                                <td>19218511-4</td>
+                                                <td>Mi Nombre</td>
+                                                <td>133</td>
+                                                <td>pablito saco un clavito</td>
+                                            </tr>
+                                            <tr>
+                                                <td>19218511-4</td>
+                                                <td>Mi Nombre</td>
+                                                <td>133</td>
+                                                <td>pablito saco un clavito</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mb-3" style="padding-left: 80%;">
+                                    <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#modalpaquetes">Crear paquete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-----Modal detalles---->
+    <div class="modal fade" id="modaldetalles" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: rgb(78, 170, 167);">
+              <h5 class="modal-title" id="exampleModalLabel1" style="color:white;">Detalles del examen</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="form-group row ">
+                        <div class="row align-items-start">
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Fecha</label>
+                                <input class="form-control" type="date" name="fecha" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Hora</label>
+                                <input class="form-control" type="time" name="hora" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Med. Tratante</label>
+                                <input class="form-control" type="text" name="medico" value=""  />
+                            </div>
+                            <div class="col-sm-15 mt-3">
+                                <label  class="form-label fw-bold">Comentario</label>
+                                <textarea class="form-control" type="text" name="comentario" value=""></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color: rgb(78, 170, 167);">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-----Modal crear paquete---->
+    <div class="modal modal-lg fade" id="modalpaquetes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: rgb(78, 170, 167);">
+              <h5 class="modal-title" id="exampleModalLabel" style="color:white;">Creación del paquete</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="form-group row ">
+                        <div class="row align-items-start">
+                            <div class="col-sm-6">
+                                <label  class="form-label fw-bold">Nombre de paquete</label>
+                                <input class="form-control" type="text" name="nombre_paquete" value=""  />
+                            </div>
+                            <div class="col-sm-6">
+                                <label  class="form-label fw-bold">Codigo del paquete</label>
+                                <input class="form-control" type="number" pattern="[0-9]*" name="codigo_paquete" value=""  />
+                            </div>
+                            <div class="col-sm-4 mt-3">
+                                <label  class="form-label fw-bold">Precio de los examenes</label>
+                                <input class="form-control" type="number" pattern="[0-9]*" name="precio_examenes" value=""  />
+                            </div>
+                            <div class="col-sm-4 mt-3">
+                                <label  class="form-label fw-bold">Descuento</label>
+                                <input class="form-control" type="text" name="descuento" value="" placeholder="%"/>
+                            </div>
+                            <div class="col-sm-4 mt-3">
+                                <label  class="form-label fw-bold">Total del paquete</label>
+                                <input class="form-control" type="number" pattern="[0-9]*" name="precio_total_paquete" value=""  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color: rgb(78, 170, 167);">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Crear</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+{% endblock %}
