@@ -1,0 +1,47 @@
+{% extends 'global/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container justify-content-center mt-3 ">
+        <div class="row">
+            <div class="col-md-15">
+                <div class="card">
+                    <div class="col-sm-12" style="background-color: rgb(78, 170, 167); border: 1px solid #333">
+                        <h4 class="card-title text-center mt-0" style="color:white;"> Creación de cliente </h4>
+                    </div>
+                    <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
+                        <div class="form-group row ">
+                            <div class="row align-items-start">
+                                <div class="col-sm-4">
+                                    <label for="nombre" class="mr-2 fw-bold" style="color:white;">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="usuario" class="mr-2 fw-bold" style="color:white;">Usuario</label>
+                                    <input type="text" class="form-control" id="usuario" name="usuario">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="contraseña" class="mr-2 fw-bold" style="color:white;">Contraseña</label>
+                                    <input type="password" class="form-control" id="contraseña" name="contraseña" placeholder="***********">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="empresa" class="mr-2 fw-bold mt-3" style="color:white;">Seleccione empresa:</label>
+                                    <select class="form-control border border-2 " id="empresa" name="empresa" >
+                                        <option value="codigo1">empresa1</option>
+                                        <option value="codigo2">empresa2</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-15" style="padding-left:85%; " >
+                                    <button class="btn btn-primary" type="submit" >Crear cliente</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

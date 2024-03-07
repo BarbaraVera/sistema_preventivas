@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'App.inicial',
     'App.agendar_hora',
     'App.crear_paquete',
+    'App.crear_cliente',
 ]
 
 MIDDLEWARE = [

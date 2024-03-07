@@ -30,4 +30,5 @@ urlpatterns = [
     path('password-change/done/', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
     path('agendar/', include("App.agendar_hora.urls")),
     path('crear_paquete/', include("App.crear_paquete.urls")),
+    path('crear_cliente/', include("App.crear_cliente.urls")),
 ]
