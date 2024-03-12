@@ -1,0 +1,35 @@
+{% extends 'global/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container justify-content-center mt-3 ">
+        <div class="row">
+            <div class="col-md-15">
+                <div class="card">
+                    <div class="col-sm-12" style="background-color: rgb(78, 170, 167); border: 1px solid #333">
+                        <h4 class="card-title text-center mt-0" style="color:white;"> Creación de empresa </h4>
+                    </div>
+                    <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
+                        <div class="form-group row ">
+                            <div class="row align-items-start">
+                                <div class="col-sm-4">
+                                    <label for="cod_empresa" class="mr-2 fw-bold" style="color:white;">Codigo</label>
+                                    <input type="text" class="form-control" id="cod_empresa" name="cod_empresa">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="nom_empresa" class="mr-2 fw-bold" style="color:white;">Nombre de empresa</label>
+                                    <input type="text" class="form-control" id="nom_empresa" name="nom_empresa">
+                                </div>
+                            </div>
+                            <div class="col-sm-15" style="padding-left:85%; " >
+                                    <button class="btn btn-primary" type="submit" >Crear empresa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

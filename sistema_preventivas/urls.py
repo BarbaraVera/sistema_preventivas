@@ -31,4 +31,5 @@ urlpatterns = [
     path('agendar/', include("App.agendar_hora.urls")),
     path('crear_paquete/', include("App.crear_paquete.urls")),
     path('crear_cliente/', include("App.crear_cliente.urls")),
+    path('crear_empresa/', include("App.crear_empresa.urls")),
 ]

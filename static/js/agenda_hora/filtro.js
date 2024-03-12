@@ -9,25 +9,58 @@ function mostrarEntradas() {
 
     ocultarEntradas();
 
-    // Mostrar el campo de entrada según la opción seleccionada
-    if (opcionSeleccionada === "codigo1") {
-        document.getElementById("busquedaRut").closest('div').style.display = 'block';
-        document.getElementById("botonbusqueda").closest('div').style.display = 'block';
-    } else if (opcionSeleccionada === "codigo2") {
-        document.getElementById("busquedaPreventivo").closest('div').style.display = 'block';
-        document.getElementById("botonbusqueda").closest('div').style.display = 'block';
-    } else if (opcionSeleccionada === "codigo3") {
-        document.getElementById("busquedaEmpresa").closest('div').style.display = 'block';
-        document.getElementById("botonbusqueda").closest('div').style.display = 'block';
-    } else if (opcionSeleccionada === "codigo4") {
-        document.getElementById("busquedafecha1").closest('div').style.display = 'block';
-        document.getElementById("busquedafecha2").closest('div').style.display = 'block';
-        document.getElementById("botonbusqueda").closest('div').style.display = 'block';
-    } else {
-        // Mostrar el campo de entrada por defecto (busquedaCodigo)
-        document.getElementById("busquedaRutDiv").style.display = 'block';
-        document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+    switch (opcionSeleccionada){
+        case "codigo1":
+            document.getElementById("busquedaRut").closest('div').style.display = 'block';
+            document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+            document.querySelectorAll("td").forEach(th => {
+                th.style.color = "black";
+            });
+            break;
+        case "codigo2":
+            document.getElementById("busquedaPreventivo").closest('div').style.display = 'block';
+            document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+            document.querySelectorAll("td").forEach(th => {
+                th.style.color = "black";
+            });
+            break;
+        case "codigo3":
+            document.getElementById("busquedaEmpresa").closest('div').style.display = 'block';
+            document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+            document.querySelectorAll("td").forEach(th => {
+                th.style.color = "black";
+            });
+            break;
+        case "codigo4":
+            document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+            document.querySelectorAll("td").forEach(th => {
+                th.style.color = "red";
+            });
+            break;
+        case "codigo5":
+            document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+            document.querySelectorAll("td").forEach(th => {
+                th.style.color = "blue";
+            });
+            break;
+        case "codigo6":
+            document.getElementById("busquedafecha1").closest('div').style.display = 'block';
+            document.getElementById("busquedafecha2").closest('div').style.display = 'block';
+            document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+            document.querySelectorAll("td").forEach(th => {
+                th.style.color = "black";
+            });
+            break;
+        default:
+            // Mostrar el campo de entrada por defecto (busquedaCodigo)
+            document.getElementById("busquedaRutDiv").style.display = 'block';
+            document.getElementById("botonbusqueda").closest('div').style.display = 'block';
+            document.querySelectorAll("td").forEach(th => {
+                th.style.color = "black";
+            });
+            break;
     }
+
 }
 
 // Función para ocultar todas las entradas
