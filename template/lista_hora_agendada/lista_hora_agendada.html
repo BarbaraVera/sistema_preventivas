@@ -9,7 +9,7 @@
             <div class="col-md-15">
                 <div class="card">
                     <div class="col-sm-12" style="background-color: rgb(78, 170, 167); border: 1px solid #333">
-                        <h4 class="card-title text-center mt-0" style="color:white;"> Agendar Hora Medica </h4>
+                        <h4 class="card-title text-center mt-0" style="color:white;"> Lista de Horas Medicas </h4>
                     </div>
                     <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
                         <div class="form-group row ">
@@ -61,19 +61,23 @@
                                                 <th>Rut</th>
                                                 <th>Nombre</th>
                                                 <th>Telefono</th>
-                                                <th>Preventiva</th>
                                                 <th>Empresa</th>
+                                                <th>Paquete</th>
                                                 <th>Ejecutiv@(quien envio)</th>
+                                                <th>Detalle</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><a role="button" data-bs-toggle="modal" data-bs-target="#exampleModal">1111111-1</a></td>
+                                                <td><a >1111111-1</a></td>
                                                 <td>Mi Nombre</td>
                                                 <td>133</td>
                                                 <td>pablito saco un clavito</td>
                                                 <td>empresa1</td>
                                                 <td>lala</td>
+                                                <td>
+                                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalle</button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>19218511-4</td>
@@ -82,6 +86,9 @@
                                                 <td>pablito saco un clavito</td>
                                                 <td>empresa1</td>
                                                 <td>lala</td>
+                                                <td>
+                                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalle</button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>19218511-4</td>
@@ -90,6 +97,9 @@
                                                 <td>pablito saco un clavito</td>
                                                 <td>empresa1</td>
                                                 <td>lala</td>
+                                                <td>
+                                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalle</button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>19218511-4</td>
@@ -98,6 +108,9 @@
                                                 <td>pablito saco un clavito</td>
                                                 <td>empresa1</td>
                                                 <td>lala</td>
+                                                <td>
+                                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Detalle</button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -115,17 +128,41 @@
         </div>
     </div>
     <!-----Modal---->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header" style="background-color: rgb(78, 170, 167);">
-              <h5 class="modal-title" id="exampleModalLabel" style="color:white;">Agendar hora</h5>
+              <h5 class="modal-title" id="exampleModalLabel" style="color:white;">Detalles de hora agendada</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="card-body">
                     <div class="form-group row ">
                         <div class="row align-items-start">
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Rut</label>
+                                <input class="form-control" type="text" name="rut" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Nombre</label>
+                                <input class="form-control" type="text" name="nombre" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Telefono</label>
+                                <input class="form-control" type="text" name="telefono" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Empresa</label>
+                                <input class="form-control" type="text" name="empresa" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Paquete</label>
+                                <input class="form-control" type="text" name="paquete" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label  class="form-label fw-bold">Med. Tratante</label>
+                                <input class="form-control" type="text" name="medico" value=""  />
+                            </div>
                             <div class="col-sm-4">
                                 <label  class="form-label fw-bold">Fecha</label>
                                 <input class="form-control" type="date" name="fecha" value=""  />
@@ -135,7 +172,7 @@
                                 <input class="form-control" type="time" name="hora" value=""  />
                             </div>
                             <div class="col-sm-4">
-                                <label  class="form-label fw-bold">Med. Tratante</label>
+                                <label  class="form-label fw-bold">ejecutiv@(quien lo envio?)</label>
                                 <input class="form-control" type="text" name="medico" value=""  />
                             </div>
                             <div class="col-sm-15 mt-3">
@@ -148,7 +185,6 @@
             </div>
             <div class="modal-footer" style="background-color: rgb(78, 170, 167);">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Enviar</button>
             </div>
           </div>
         </div>
@@ -157,7 +193,7 @@
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript" src="{% static 'js/agenda_hora/filtro.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/lista_hora_agendada/filtro_lista.js' %}"></script>
 
 
 {% endblock %}
