@@ -1,3 +1,5 @@
+var formulario_cliente = document.getElementById("formulario_cliente");
+
 //validar  que los campos de contraseña no admita campos en blanco
 document.getElementById("contraseña_cliente").addEventListener("keydown", function(event) {
     if (event.keyCode === 32) {
@@ -12,7 +14,7 @@ document.getElementById("confirmar_contraseña").addEventListener("keydown", fun
 
 
 //aqui valido las contraseñas y los campos.. tambien que el usuario no sea uno existente
-document.getElementById("formulario_cliente").addEventListener("submit", function(event) {
+formulario_cliente.addEventListener("submit", function(event) {
     event.preventDefault();
     if (validar_pass()) {
         validar();

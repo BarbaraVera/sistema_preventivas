@@ -31,25 +31,31 @@ def insertar_cliente(request):
         contraseña_cliente = request.POST.get('contraseña_cliente')
         empresa_cliente = request.POST.get('empresa_cliente')
 
-        datos_empresa = empresa.objects.get(cod_empresa=empresa_cliente)
+        try:
 
-        existe_usuario = usuario.objects.filter(usuario=usuario_cliente).exists()
+            datos_empresa = empresa.objects.get(cod_empresa=empresa_cliente)
 
-        if existe_usuario:
-            messages.error(request, f'El nombre de usuario ya existe')
+            existe_usuario = usuario.objects.filter(usuario=usuario_cliente).exists()
+
+            if existe_usuario:
+                messages.error(request, f'El nombre de usuario ya existe')
+                return redirect('inicio_crear_cliente')
+
+            hashed_password = bcrypt.hashpw(contraseña_cliente.encode('utf-8'), bcrypt.gensalt())
+
+            datos_cliente = usuario(
+                usuario=usuario_cliente,
+                clave=hashed_password.decode('utf-8'),
+                empresa=datos_empresa,
+                nombre=nombre_cliente
+            )
+            datos_cliente.save()
+            messages.success(request, 'El usuario se ha creado correctamente.')
             return redirect('inicio_crear_cliente')
 
-        hashed_password = bcrypt.hashpw(contraseña_cliente.encode('utf-8'), bcrypt.gensalt())
-
-        datos_cliente = usuario(
-            usuario=usuario_cliente,
-            clave=hashed_password.decode('utf-8'),
-            empresa=datos_empresa,
-            nombre=nombre_cliente
-        )
-        datos_cliente.save()
-        messages.success(request, 'El usuario se ha creado correctamente.')
-        return redirect('inicio_crear_cliente')
+        except Exception as e:
+            messages.error(request, f'Ocurrió un error (no se insertaron datos): {str(e)}')
+            return redirect('inicio_crear_cliente')
 
     return redirect('inicio_crear_cliente')
 
