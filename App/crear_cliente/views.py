@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render, redirect
 
-from App.inicial.models import empresa, usuario
+from App.crear_empresa.models import empresa
+from App.crear_cliente.models import usuario
 
 @login_required
 def crear_cliente(request):
