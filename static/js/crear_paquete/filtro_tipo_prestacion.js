@@ -1,4 +1,6 @@
 //-------variables--------------------
+var nombre_paquete = document.getElementById("nombre_paquete");
+var nombre_paquete_modal = document.getElementById("nombre_paquete_modal");
 var tipo_prestacion = document.getElementById("tipo_prestacion");
 var tablaPrestaciones = document.getElementById("tabla_prestaciones").getElementsByTagName('tbody')[0];
 var tabla_Seleccionados = document.getElementById("tabla_seleccionados").getElementsByTagName('tbody')[0];
@@ -24,21 +26,24 @@ function showPrestaciones(cod_tipo_prestacion){
         });
     });
 }
-//----------Se agregan las prestaciones a la tabla ------------------
+//----------Se agregan las prestaciones a la tabla_seleccionados ------------------
 document.querySelector('#agregar_tabla_btn').addEventListener('click', function(){
     var selectedRows = Array.from(tablaPrestaciones.getElementsByTagName('input')).filter(checkbox => checkbox.checked);
     selectedRows.forEach(row => {
         var newRow = tabla_seleccionados.insertRow();
         var tipoPrestacionSeleccionado = tipo_prestacion.options[tipo_prestacion.selectedIndex].text;
         var tipoCell = newRow.insertCell(0);
+
         tipoCell.innerHTML = tipoPrestacionSeleccionado;
 
         for(var i = 0; i < row.parentElement.parentElement.cells.length - 1 ; i++){
             var cell = newRow.insertCell();
             cell.innerHTML = row.parentElement.parentElement.cells[i].innerHTML;
         }
+
         var sacarFilaButtonCell = newRow.insertCell();
         var sacarFilaButton = document.createElement('button');
+
         sacarFilaButton.textContent = 'Sacar fila';
         sacarFilaButton.classList.add('btn', 'btn-danger');
         sacarFilaButton.addEventListener('click',function(){
@@ -51,4 +56,23 @@ document.querySelector('#agregar_tabla_btn').addEventListener('click', function(
     });
     tablaPrestaciones.innerHTML = '';
     tipo_prestacion.selectedIndex = 0;
+});
+
+//---------------datos de la tabla_seleccionados, se envian a la tabla del modal-----
+document.querySelector('#modalpaquetes').addEventListener('show.bs.modal', function(event) {
+    var modalTableBody = document.querySelector('#modalpaquetes table tbody');
+    var rows = Array.from(tabla_seleccionados.querySelectorAll('tbody tr'));
+
+    modalTableBody.innerHTML='';
+
+    rows.forEach(row => {
+        var newRow = modalTableBody.insertRow();
+        var cells = Array.from(row.cells);
+
+        // Iterar hasta la penúltima celda
+        for (var i = 0; i < cells.length - 1; i++) {
+            var newCell = newRow.insertCell();
+            newCell.innerHTML = cells[i].innerHTML;
+        }
+    });
 });
