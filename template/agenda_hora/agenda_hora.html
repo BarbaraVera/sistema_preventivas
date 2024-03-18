@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block content %}
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="container justify-content-center mt-3 ">
         <div class="row">
             <div class="col-md-15">
@@ -11,8 +12,10 @@
                     <div class="col-sm-12" style="background-color: rgb(78, 170, 167); border: 1px solid #333">
                         <h4 class="card-title text-center mt-0" style="color:white;"> Agendar Hora Medica </h4>
                     </div>
+                    <form id="filtroForm" method="post" class="form-group row">
+                                {% csrf_token %}
                     <div class="card-body" style="background-color: rgb(78, 170, 167);margin-top:1%; border: 1px solid #333;">
-                        <div class="form-group row ">
+                        <div class="form-group row">
                             <div class="row align-items-start">
                                 <div class="col-sm-4">
                                     <label for="busqueda" class="mr-2 fw-bold" style="color:white;">filtro:</label>
@@ -22,32 +25,40 @@
                                         <option value="codigo3">Empresa</option>
                                         <option value="codigo4">Urgencia</option>
                                         <option value="codigo5">Hospitalario</option>
-                                        <option value="codigo6">Fechas</option>
+                                        <option value="codigo6">Fecha</option>
                                     </select>
                                 </div>
+
                                 <div class="col-sm-4" style="display: none;" id="busquedaRutDiv">
                                     <label for="busquedaRut" class="mr-2 fw-bold" style="color:white;">Rut</label>
                                     <input type="text" class="form-control" id="busquedaRut" name="busquedaRut" placeholder="Ejemplo: 11111111-1">
+                                    <div id="mensaje1" style="color: red;"></div>
                                 </div>
                                 <div class="col-sm-4" style="display: none;">
                                     <label for="busquedaPreventivo" class="mr-2 fw-bold" style="color:white;">Preventivo</label>
                                     <input type="text" class="form-control" id="busquedaPreventivo" name="busquedaPreventivo" placeholder="Preventivo">
+                                    <div id="mensaje2" style="color: red"></div>
                                 </div>
                                 <div class="col-sm-4" style="display: none;">
                                     <label for="busquedaEmpresa" class="mr-2 fw-bold" style="color:white;">Empresa</label>
                                     <input type="text" class="form-control" id="busquedaEmpresa" name="busquedaEmpresa" placeholder="Nombre empresa">
+                                    <div id="mensaje3" style="color: red"></div>
                                 </div>
                                 <div class="col-sm-3" style="display: none;" id="busquedafecha1">
                                     <label for="fechaInicio" class="fw-bold"  style="color:white;">Inicio: </label>
                                     <input type="date" class="form-control" id="fechaInicio" name="fechaInicio">
                                 </div>
+
                                 <div class="col-sm-3" style="display: none;" id="busquedafecha2">
                                     <label for="fechaFin" class="fw-bold"  style="color:white;">Fin: </label>
                                     <input type="date" class="form-control" id="fechaFin" name="fechaFin">
+
                                 </div>
                                 <div class="col-sm-2 mt-4" style="display: none;" id="botonbusqueda">
-                                    <button class="btn btn-primary" type="submit">Filtrar</button>
+                                    <button class="btn btn-primary" type="button" id="filtro" >Filtrar</button>
                                 </div>
+                                <div id="mensaje4" style="color: red"></div>
+
                             </div>
                         </div>
                     </div>
@@ -66,39 +77,9 @@
                                                 <th>Ejecutiv@(quien envio)</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a role="button" data-bs-toggle="modal" data-bs-target="#exampleModal">1111111-1</a></td>
-                                                <td>Mi Nombre</td>
-                                                <td>133</td>
-                                                <td>pablito saco un clavito</td>
-                                                <td>empresa1</td>
-                                                <td>lala</td>
-                                            </tr>
-                                            <tr>
-                                                <td>19218511-4</td>
-                                                <td>Mi Nombre</td>
-                                                <td>133</td>
-                                                <td>pablito saco un clavito</td>
-                                                <td>empresa1</td>
-                                                <td>lala</td>
-                                            </tr>
-                                            <tr>
-                                                <td>19218511-4</td>
-                                                <td>Mi Nombre</td>
-                                                <td>133</td>
-                                                <td>pablito saco un clavito</td>
-                                                <td>empresa1</td>
-                                                <td>lala</td>
-                                            </tr>
-                                            <tr>
-                                                <td>19218511-4</td>
-                                                <td>Mi Nombre</td>
-                                                <td>133</td>
-                                                <td>pablito saco un clavito</td>
-                                                <td>empresa1</td>
-                                                <td>lala</td>
-                                            </tr>
+                                        <tbody id="table-body">
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -110,6 +91,7 @@
                             </div>
                         </div>
                     </div>
+                        </form>
                 </div>
             </div>
         </div>
