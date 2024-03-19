@@ -192,8 +192,8 @@ def filtroFecha(request):
 
             return JsonResponse({'data': datos_json})
         else:
-            return JsonResponse({'error': 'No se encontraron solicitudes para este rango de fechas.'}, status=404)
+            return JsonResponse({'error': 'No se encontraron solicitudes para este rango de fechas.'})
 
-    return JsonResponse({'error': 'Método no permitido'}, status=405)
+    return JsonResponse({'error': 'Método no permitido'})
 
 
